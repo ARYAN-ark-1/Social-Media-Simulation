@@ -152,7 +152,7 @@ void social_media ::set_account(int empty_val)
         i = 1;
     } while (!isValidGmailAddress(email));
     string file = "profile.txt";
-    string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin + "/";
+    string file_path =  admin + "/";
     file_path += file;
     myfile.open(file_path, ios::app);
     myfile << "ID name :: " << admin;
@@ -189,7 +189,7 @@ void social_media ::set_account()
     myfile.open("record.txt", ios::app);
     myfile << admin << "\t" << password << endl;
     myfile.close();
-    string folder = "/Users/aryan/Desktop/PROJECT A/" + admin;
+    string folder =  admin;
     string directories = folder;
     mkdir(directories.c_str(), 0777);
     cout << "\nYOUR ACCOUNT HAS BEEN REGISTERD.";
@@ -211,17 +211,17 @@ bool social_media ::check_account()
         myfile.close();
         cout << "Welcome " << admin << endl;
         string file = "friend.txt";
-        string file_path("/Users/aryan/Desktop/PROJECT A/" + admin + "/");
+        string file_path( admin + "/");
         file_path += file;
         myfile.open(file_path, ios::app);
         myfile.close();
         file = "inbox.txt";
-        file_path = "/Users/aryan/Desktop/PROJECT A/" + admin + "/";
+        file_path =  admin + "/";
         file_path += file;
         myfile.open(file_path, ios::app);
         myfile.close();
         file = "post.txt";
-        file_path = "/Users/aryan/Desktop/PROJECT A/" + admin + "/";
+        file_path =  admin + "/";
         file_path += file;
         myfile.open(file_path, ios::app);
         myfile.close();
@@ -264,12 +264,12 @@ void User ::add_friend()
     if (check_names(friend_name) && friend_name!=admin_NAME)
     {
         myfile.close();
-        string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "friend.txt";
+        string file_path =  admin_NAME + "/" + "friend.txt";
         myfile.open(file_path);
         if (!check_names(friend_name))
         {
             myfile.close();
-            string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "friend.txt";
+            string file_path =  admin_NAME + "/" + "friend.txt";
             myfile.open(file_path, ios::app);
             myfile << friend_name << endl;
             myfile.close();
@@ -295,7 +295,7 @@ void User ::add_friend()
 // Function to check and display the friend list for the User class
 void User ::check_friend()
 {
-    string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "friend.txt";
+    string file_path =  admin_NAME + "/" + "friend.txt";
     myfile.open(file_path);
     string word;
     while (myfile >> word)
@@ -311,7 +311,7 @@ void User ::post_friend()
     string recipient;
     cout << "Enter name of friend that you want to send : ";
     cin >> recipient;
-    string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "friend.txt";
+    string file_path =  admin_NAME + "/" + "friend.txt";
     myfile.open(file_path);
     string word;
     int flag=0;
@@ -323,8 +323,8 @@ void User ::post_friend()
     if(flag==1)
         {
             myfile.close();
-            string file_path = "/Users/aryan/Desktop/PROJECT A/" + recipient + "/" + "inbox.txt";
-            string new_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "post.txt";
+            string file_path =  recipient + "/" + "inbox.txt";
+            string new_path =  admin_NAME + "/" + "post.txt";
             myfile.open(file_path, ios ::app);
             newfile.open(new_path, ios ::app);
             string word;
@@ -353,7 +353,7 @@ void User ::post_friend()
 // Function to post a message for the User class
 void User ::check_inbox()
 {
-    string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "inbox.txt";
+    string file_path =  admin_NAME + "/" + "inbox.txt";
     myfile.open(file_path);
     string word;
     while (myfile >> word)
@@ -377,7 +377,7 @@ void User ::check_inbox()
 // Function to check and display the inbox for the User class
 void User ::check_post()
 {
-    string file_path = "/Users/aryan/Desktop/PROJECT A/" + admin_NAME + "/" + "post.txt";
+    string file_path =  admin_NAME + "/" + "post.txt";
     myfile.open(file_path);
     string word;
     while (myfile >> word)
